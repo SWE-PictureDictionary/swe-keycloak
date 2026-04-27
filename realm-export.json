@@ -3,8 +3,15 @@
   "enabled": true,
   "roles": {
     "realm": [
-      { "name": "LEARNER" },
-      { "name": "CONTENT_MANAGER" }
+      {
+        "name": "LEARNER"
+      },
+      {
+        "name": "CONTENT_MANAGER"
+      },
+      {
+        "name": "HOTSPOT_EDITOR"
+      }
     ]
   },
   "clients": [
@@ -16,13 +23,16 @@
       "secret": "edge-secret-dev-123",
       "standardFlowEnabled": true,
       "redirectUris": [
+        "http://localhost:8080/*",
+        "http://localhost:8080/login.html",
+        "http://localhost:8080/login/oauth2/code/*",
         "http://localhost:8080/login/oauth2/code/keycloak"
       ],
       "webOrigins": [
         "http://localhost:8080"
       ],
       "attributes": {
-        "post.logout.redirect.uris": "http://localhost:8080/*"
+        "post.logout.redirect.uris": "http://localhost:8080/login.html##http://localhost:8080/*"
       }
     }
   ],
@@ -55,6 +65,21 @@
       ],
       "realmRoles": [
         "CONTENT_MANAGER"
+      ]
+    },
+    {
+      "username": "hotspot1",
+      "enabled": true,
+      "emailVerified": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "password",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "HOTSPOT_EDITOR"
       ]
     }
   ]
