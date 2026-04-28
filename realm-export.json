@@ -1,0 +1,91 @@
+{
+  "realm": "picture-dictionary",
+  "enabled": true,
+  "roles": {
+    "realm": [
+      {
+        "name": "LEARNER"
+      },
+      {
+        "name": "CONTENT_MANAGER"
+      },
+      {
+        "name": "HOTSPOT_EDITOR"
+      }
+    ]
+  },
+  "clients": [
+    {
+      "clientId": "edge-service",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "secret": "edge-secret-dev-123",
+      "standardFlowEnabled": true,
+      "redirectUris": [
+        "http://localhost/*",
+        "http://localhost/login.html",
+        "http://localhost/login/oauth2/code/*",
+        "http://localhost/login/oauth2/code/keycloak",
+        "http://localhost:8080/*",
+        "http://localhost:8080/login.html",
+        "http://localhost:8080/login/oauth2/code/*",
+        "http://localhost:8080/login/oauth2/code/keycloak"
+      ],
+      "webOrigins": [
+        "http://localhost",
+        "http://localhost:8080"
+      ],
+      "attributes": {
+        "post.logout.redirect.uris": "+"
+      }
+    }
+  ],
+  "users": [
+    {
+      "username": "learner1",
+      "enabled": true,
+      "emailVerified": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "password",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "LEARNER"
+      ]
+    },
+    {
+      "username": "manager1",
+      "enabled": true,
+      "emailVerified": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "password",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "CONTENT_MANAGER"
+      ]
+    },
+    {
+      "username": "hotspot1",
+      "enabled": true,
+      "emailVerified": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "password",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "HOTSPOT_EDITOR"
+      ]
+    }
+  ]
+}
